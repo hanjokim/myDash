@@ -29,8 +29,8 @@
             });
             // 이벤트를 연결합니다.
             $(document).on('click', '.item', function (event) {
-                if (event.shiftKey) {
-                    // 클릭한 대상을 제거합니다.
+                if (event.ctrlKey) {
+                    // Ctrl+클릭한 대상을 제거합니다.
                     $('#masonry-container').masonry('remove', $(this));
                     $('#masonry-container').masonry('layout');
                 } else {

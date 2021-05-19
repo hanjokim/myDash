@@ -3,16 +3,17 @@
 <head>
     <style>
         * { margin: 0px; padding: 0px; }
-        body { background-color:#525252; }
+        body {
+            background-color:#525252; }
         .item  {
-            margin: 5px;
-            width: 100px; height: 100px;
-            background-color:white; border-radius: 10px;
+            margin: 3px;
+            width: 100px; height: 50px;
+            background-color:white; border-radius: 2px;
             float: left;
         }
-        .big { width: 210px; height: 430px; }
-        .normal { width: 210px; height: 210px; }
-        .small { width: 100px; height: 100px; }
+        .big { width: 206px; height: 106px; }
+        .normal { width: 206px; height: 50px; }
+        .small { width: 100px; height: 50px; }
     </style>
     <meta charset="UTF-8">
     <title>My Favorites</title>
@@ -23,7 +24,7 @@
             // masonry 플러그인을 적용합니다.
             $('#masonry-container').masonry({
                 itemSelector: '.item',
-                columnWidth: 110,
+                columnWidth: 106,
                 isAnimated: true
             });
             // 이벤트를 연결합니다.

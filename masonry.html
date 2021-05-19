@@ -4,7 +4,10 @@
     <style>
         * { margin: 0px; padding: 0px; }
         body {
-            background-color:#525252; }
+            background-color:#aaaaaa; }
+        .title {
+            margin: 10px 5px 5px 5px;
+        }
         .item  {
             margin: 3px;
             width: 100px; height: 50px;
@@ -22,7 +25,12 @@
     <script>
         $(document).ready(function () {
             // masonry 플러그인을 적용합니다.
-            $('#masonry-container').masonry({
+            $('#masonry-container-1').masonry({
+                itemSelector: '.item',
+                columnWidth: 106,
+                isAnimated: true
+            });
+            $('#masonry-container-2').masonry({
                 itemSelector: '.item',
                 columnWidth: 106,
                 isAnimated: true
@@ -31,32 +39,58 @@
             $(document).on('click', '.item', function (event) {
                 if (event.ctrlKey) {
                     // Ctrl+클릭한 대상을 제거합니다.
-                    $('#masonry-container').masonry('remove', $(this));
-                    $('#masonry-container').masonry('layout');
+                    $('#masonry-container-1').masonry('remove', $(this));
+                    $('#masonry-container-1').masonry('layout');
+
+                    $('#masonry-container-2').masonry('remove', $(this));
+                    $('#masonry-container-2').masonry('layout');
                 } else {
                     // 클릭한 대상을 복제합니다.
                     var item = $(this).clone();
-                    $('#masonry-container').append(item);
-                    $('#masonry-container').masonry('addItems', item);
-                    $('#masonry-container').masonry('layout');
+                    $('#masonry-container-1').append(item);
+                    $('#masonry-container-1').masonry('addItems', item);
+                    $('#masonry-container-1').masonry('layout');
+
+                    $('#masonry-container-2').append(item);
+                    $('#masonry-container-2').masonry('addItems', item);
+                    $('#masonry-container-2').masonry('layout');
                 }
             });
         });
     </script>
 </head>
 <body>
-<div id="masonry-container">
-    <div class="item small"></div>
-    <div class="item big"></div>
-    <div class="item normal"></div>
-    <div class="item small"></div>
-    <div class="item small"></div>
-    <div class="item small"></div>
-    <div class="item normal"></div>
-    <div class="item normal"></div>
-    <div class="item small"></div>
-    <div class="item small"></div>
-    <div class="item small"></div>
+<div>
+    <h3 class="title">Frequent Visited Sites</h3>
+    <div id="masonry-container-1">
+        <div class="item small"></div>
+        <div class="item big"></div>
+        <div class="item normal"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item normal"></div>
+        <div class="item normal"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+    </div>
+</div>
+<div>
+    <h3 class="title">Favorite Sites</h3>
+    <div id="masonry-container-2">
+        <div class="item small"></div>
+        <div class="item big"></div>
+        <div class="item normal"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item normal"></div>
+        <div class="item normal"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+    </div>
 </div>
 </body>
 </html>

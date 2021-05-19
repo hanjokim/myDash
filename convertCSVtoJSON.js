@@ -1,6 +1,9 @@
 function convertCSVToJSON(str, delimiter = ',') {
-    const titles = str.slice(0, str.indexOf('\n')).split(delimiter);
-    const rows = str.slice(str.indexOf('\n') + 1).split('\n');
+    // const titles = str.slice(0, str.indexOf('\n')).split(delimiter);
+    const titles = ["site", "url"];
+    // const rows = str.slice(str.indexOf('\n') + 1).split('\n');
+    const rows = str.replace(/\r/gm, '').split('\n');
+    // someText = someText.replace(/(\r\n|\n|\r)/gm, "");
     return rows.map(row => {
         const values = row.split(delimiter);
         return titles.reduce((object, curr, i) => (object[curr] = values[i], object), {})

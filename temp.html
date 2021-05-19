@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <title>Dash Demo</title>
     <script src="convertCSVtoJSON.js"></script>
-    <script src="openFile.js"></script>
+    <script src="csv-to-json.js"></script>
+<!--    <script src="openFile.js"></script>-->
+    <script>
+        function openTextFile(){
+            var input = document.createElement("input");
+
+            input.type = "file";
+            // input.accept = "text/plain, text/html, .csv";
+            input.accept = ".csv";
+
+            input.click();
+            input.onchange = function (event) {
+                processFile(event.target.files[0]);
+            };
+
+        }
+
+        function processFile(file){
+            var reader = new FileReader();
+            reader.readAsText(file, "utf-8");
+
+            reader.onload = function () {
+                // output.innerText += reader.result;
+                // output.innerText = JSON.stringify(convertCSVToJSON(reader.result));
+                output.innerText = JSON.stringify(csvJSON(reader.result));
+            };
+        }
+     </script>
 </head>
 <body>
-    <button onclick="openTextFile()">Open</button>
-    <div id="output">File Contents Area</div>
+    <div id="output">File Contents Area
+        <button onclick="openTextFile()">Open</button>
+    </div>
 </body>
 </html>
